@@ -1,4 +1,6 @@
 
+
+
 # [추가] 함수도 객체이다
 def case1():
     print('case-1')
@@ -9,11 +11,43 @@ def case2():
 def case3():
     print('case-3')
 
+f = {'a1':case1, 'a2':case2, 'a3':case3}
+print(f['a1']) # <function case1 at 0x000002959C12F1F0>
+f['a1']() # 함수 호출
+
+byunsu = 'a3'
+print(f[byunsu])
+f[byunsu]()
 
 
 #---------------------------------------
 # 글로벌 변수와 지역변수
 
+#(1) 글로벌 문자열 객체를 가리키는 temp를 만들어주세요
+# temp = '글로벌'
+# def func():
+#     print('1>', temp)
+# func()
+# print('2>', temp)
+
+#(2) 글로벌 문자열 객체를 가리키는 temp를 만들어주세요
+# temp = '글로벌'
+# def func():
+#     # print('0>', temp)
+#     temp = '지역'
+#     print('1>', temp)
+# func()
+# print('2>', temp)
+
+#(3) 함수를 벗어나면 변수 값 사라짐(메모리에서..)
+# temp = '글로벌'
+def func():
+    # 선언과 값 지정을 따로 해줘야 한다.
+    global temp
+    temp = '지역'
+    print('1>', temp)
+func()
+print('2>', temp)
 
 
 '''
@@ -26,6 +60,12 @@ def case3():
     
     종종 사용됨
 '''
+def f(x, y):
+    return x+y
+print(f(3,2))
+
+f = lambda x, y : x+y
+print(f(3,2))
 
 
 
@@ -42,7 +82,18 @@ def case3():
     파이썬 2.x에서는 많이 사용하던 함수이지만, 최근 문법의 복잡성으로 권장하지 않는 추세란다.
 """
 
+def calc(x):
+    return x*2
 
+data = [1,2,3,4,5]
+res = list(map(calc,data))
+print(res)
+
+from functools import reduce
+def calc(x, y):
+    return x*y
+data = [1,2,3,4,5]
+print(reduce(calc, data))
 
 
 

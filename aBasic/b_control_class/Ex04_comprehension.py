@@ -17,7 +17,10 @@
 
 
 # 컨프리핸션 사용하지 않은 리스트 생성
+
 alist = []
+
+
 alist.append(1)
 alist.append(2)
 alist.append(3)
@@ -42,11 +45,23 @@ print(alist)
 #-------------------------------------------
 # 딕셔러니 컨프리핸션
 
+word = 'LOVE LOL'
+# 해당 단어가 몇 개가 들어있는지 세기
+wcnt = { letter : word.count(letter) for letter in set(word)} # 딕셔너리
+print(wcnt)
+print("---------")
+print(set(word))
 
 
 #------------------------------------------------
 # 셋 컨프리핸션
 
+data = (1,2,3,4,3,5,1)
+alist = [x*2 for x in data]
+print(alist)
+
+bset = {x for x in data}
+print(bset)
 
 
 
