@@ -23,5 +23,10 @@ def get_weather():
     return choice(today)
 
 def get_date():
-    today = ['월','화','수','목','금','토','일ㄴ']
+    today = ['월','화','수','목','금','토','일']
     return choice(today)
+
+# 시작점
+if __name__ == '__main__':  # mymodule
+    print('오늘의 날씨는', get_weather())
+    print('오늘은 ', get_date())
