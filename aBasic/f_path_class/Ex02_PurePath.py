@@ -6,7 +6,23 @@
 
 #-------------------------------------------------------------------
 # 1 - 존재하지 않는 경로
+from pathlib import PurePath
 
+j = PurePath('babo/myclass/myjob')
+print(j)
+print(j.parts)
+
+print('-'*40)
+a = PurePath('mywork')
+mypath = a / 'python' / 'imsi' / 'abc'
+print(mypath)
+
+mypath2 = a.joinpath('python', 'imsi', 'zyx')
+print(mypath2)
+
+print(mypath2.parents[0])
+print(mypath2.parents[1])
+print(mypath2.parents[2])
 
 
 #-------------------------------------------------------------------
