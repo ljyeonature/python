@@ -55,18 +55,25 @@ def set_contact():
     # 이름, 전화번호, 이메일, 주소를 입력받아
     # Contact 객체를 생성하고 DB 에 입력
     name = input("이름 : ")
-    phone_number = input("전화번호 : ")
+    phone_name = input("전화번호 : ")
     email = input("이메일 : ")
     addr = input("주소 : ")
-    contact = Contact(name, phone_number, email, addr)
-    sql = 'INSERT INTO contact (name, phone_number, email, addr)  VALUES (%s, %s, %s, %s)'
-    cursor = conn.cursor()
+    contact = Contact(name, phone_name, email, addr)
+    sql = '''INSERT INTO contact (name, phone_name, email, addr)  VALUES (%s, %s, %s, %s)'''
+    values = (contact.name, contact.phone_name, contact.email, contact.addr)
+    cursor.execute(sql, values)
+    conn.commit()
+    conn.close()
 
 
 def print_contact():
     # (2)
     #  테이블의 전체 레코드 출력
-    pass
+    sql = 'SELECT * FROM contact'
+    cursor.execute(sql)
+    conn.close()
+    result = cursor.fetchall()
+    print(result)
 
 def delete_contact(name):
     # (3)
