@@ -39,10 +39,7 @@ for result in zip(titles,authors):
     print(result[0].text, ":", result[1].text)
 
 from urllib import parse
-i = 0
-for img in imgs:
-    print(img)
-    imgPath = 'https://wikidocs.net' + parse.quote(img.attrs['src'])
-    request.urlretrieve(imgPath, './images/' + str(i) + '.jpg')
-    i += 1
+for result in zip(titles,imgs):
+    imgPath = 'https://wikidocs.net' + parse.quote(result[1].attrs['src'])
+    request.urlretrieve(imgPath, './images/' + result[0].text.replace(":","") + '.jpg')
 
