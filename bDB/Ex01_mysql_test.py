@@ -14,8 +14,8 @@ print('디비연결 성공')
 
 # 레코드 하나만 입력확인
 # sql = '''
-#     INSERT INTO emp(empno, ename, job, hiredate, sal, comm)
-#     VALUES (9999, 'hong', 'it', sysdate(), 1000, 2000)
+#     INSERT INTO emp(empno, ename, mgr, job, hiredate, sal, comm, deptno)
+#     VALUES (9999, 'hong','gildong', 'it', sysdate(), 1000, 2000,10)
 #
 # '''
 #
@@ -29,7 +29,7 @@ filename = 'files/emp.csv'
 file = csv.reader(open(filename, 'r'), delimiter=',')
 
 for row in file:
-    # print(row)
+    print(row)
     sql = '''
         INSERT INTO emp VALUES(%s,%s,%s,%s,%s,%s,%s,%s)
     '''
