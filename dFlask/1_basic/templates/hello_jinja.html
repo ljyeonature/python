@@ -1,0 +1,14 @@
+{% extends 'layout/base.html' %}
+
+{% block head %}
+    <title>우리사이트</title>
+{% endblock %}
+
+{% block body %}
+    {% if name =='홍길동' %}
+        <h1>안녕하세요, {{name}} !!!</h1>
+    {% else %}
+        <img src="/static/image/hello_world.png"/>
+    {% endif %}
+{% endblock %}
+
