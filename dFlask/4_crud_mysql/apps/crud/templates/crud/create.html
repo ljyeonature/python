@@ -1,0 +1,25 @@
+{% extends "crud/base.html" %}
+{% block title %}사용자 신규 작성{% endblock %}
+{% block content %}
+<h2>사용자 신규 작성 0 </h2>
+<form action="{{ url_for('crud.create_user') }}" method="POST" novalidate="novalidate">
+    <!-- csrf 토큰 자동 생성
+        아래 코드가 없는 상태에서 폼 작성 후 입력 버튼 누르면 "Bad Request" 에러 발생
+    -->
+    {{ form.csrf_token }}
+
+    <p>
+        {{ form.username.label }} {{ form.username(placeholder="사용자명") }}
+    </p>
+
+    <p>
+        {{ form.email.label }} {{ form.email(placeholder="메일 주소") }}
+    </p>
+
+    <p>
+        {{ form.password.label }} {{ form.password(placeholder="비밀번호") }}
+    </p>
+
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

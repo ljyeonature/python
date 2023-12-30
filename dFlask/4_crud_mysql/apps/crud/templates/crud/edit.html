@@ -1,0 +1,33 @@
+{% extends 'crud/base.html' %}
+{% block title %}사용자 편집{% endblock %}
+{% block content %}
+<h2>사용자 편집</h2>
+<form action="{{ url_for('crud.edit_user', user_id=user.id) }}" method="POST" novalidate="novalidate">
+    {{ form.csrf_token }} <!-- 없는상태에서 전송시 오류-->
+    <p>
+        {{ form.username.label }} {{ form.username(placeholder="사용자명",
+        value=user.username) }}
+    </p>
+
+    <p>
+        {{ form.email.label }} {{ form.email(placeholder="메일 주소",
+        value=user.email) }}
+    </p>
+
+    <p>
+        {{ form.password.label }} {{ form.password(placeholder="비밀번호") }}
+    </p>
+
+    <p><input type="submit" value="수정" /></p>
+</form>
+
+<!-- 삭제버튼 -->
+{# jinja 주석 #}
+<form action="{{ url_for('crud.delete_user', user_id=user.id) }}" method="POST">
+    {{ form.csrf_token }}
+    <input type="submit" value="삭제">
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,10 @@
+flask==1.2.2
+mysql==22.2.2
+::
+
+flask-sqlalchemy
+flask-migrate
+flask-wtf
+
+터미널에서
+pip install -r mypackages.txt
