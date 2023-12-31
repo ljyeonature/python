@@ -38,19 +38,19 @@ print(accommodation)
 
 # CSV 파일로 저장
 
-csv_filename = "files/accommodation_data.csv"
+csv_filename = "files/accommodations_data.csv"
 
 with open(csv_filename, "w", newline="", encoding="utf-8") as csvfile:
     # CSV 파일을 작성하기 위한 writer 객체 생성
     csv_writer = csv.writer(csvfile)
 
     # 헤더 쓰기 (예시: 데이터의 필드명)
-    header = ["addr", "accommodationlist_name", "image1", "image2", "mapx", "mapy"]
+    header = ["addr", "accommodationlist_name", "image1", "image2", "mapx", "mapy", "contentId"]
     csv_writer.writerow(header)
 
     # 데이터 쓰기
     for item in datas:
-        row = [item["addr1"], item["title"], item["firstimage"], item["firstimage2"], item["mapx"], item["mapy"]]
+        row = [item["addr1"], item["title"], item["firstimage"], item["firstimage2"], item["mapx"], item["mapy"], item["contentid"]]
         csv_writer.writerow(row)
 
 print(f"Data has been saved to {csv_filename}")

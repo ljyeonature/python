@@ -7,12 +7,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 driver = webdriver.Chrome()
-driver.implicitly_wait(2)
+driver.implicitly_wait(5)
 
 addrs = []  # 주소
 names = []  # 주소로 검색 안 될 경우
 # tourist_destination_data에서 검색할 주소 가져오기
-csv_file_path = 'files/restaurant_data.csv'  # 실제 파일 경로로 변경해주세요.
+csv_file_path = 'files/restaurants_data.csv'  # 실제 파일 경로로 변경해주세요.
 data = pd.read_csv(csv_file_path)
 # print(data)
 for index, row in data.iterrows():
@@ -125,7 +125,7 @@ for n in range(len(names)):
 
 import csv
 
-output_file = 'files/restaurantlist_rates.csv'
+output_file = 'files/restaurant_rates.csv'
 file = csv.writer(open(output_file, 'w', encoding='utf-8', newline=''), delimiter=',')
 header = ["restaurantlist_name", "addr", "rates", "visitors", "reviews"]
 file.writerow(header)
